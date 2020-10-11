@@ -1,0 +1,21 @@
+
+<%= @question %><br>
+質問内容：<%= @question.question %><br>
+回答一覧：
+<% if @answers != nil %>
+  <%= @answers.each do |answer| %>
+    <%= answer&.answer %>
+  <% end %>
+<% end %>
+回答する：
+
+<%= form_for(@answer) do |f| %>
+  <%= f.text_area :answer %>
+  <%= f.submit "送信" %>
+<% end %>
+
+このページでは<br>
+質問の詳細<br>
+回答一覧（回答一覧【自他の回答含む】）<br>
+回答ボタン（自分が回答する）<br>
+って感じの構成にする

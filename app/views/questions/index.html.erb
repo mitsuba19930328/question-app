@@ -1,0 +1,10 @@
+
+質問一覧
+
+<%= @questions.each do |question| %>
+  <div id="container">
+  <%= question.question_id %>
+  <%= question.question %>
+  <%= link_to "質問詳細", question_path(question.id) %>
+  </div>
+<% end %>
