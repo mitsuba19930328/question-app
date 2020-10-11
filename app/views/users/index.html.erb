@@ -1,3 +1,10 @@
 
-
-テスト
+<%=link_to "マイページ", user_path(current_user.id), class:"btn loginPage_contents_btn" %>
+マイページ
+→質問する
+→プロフィール編集
+<%=link_to "質問一覧", questions_path, class:"btn loginPage_contents_btn" %>
+質問一覧
+→回答する
+<%=link_to "ユーザー一覧", users_path, class:"btn loginPage_contents_btn" %>
+ユーザー一覧
