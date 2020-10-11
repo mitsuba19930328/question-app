@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_041501) do
+ActiveRecord::Schema.define(version: 2020_10_11_050956) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "answer_id", null: false
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.text "question", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
+    t.text "question", null: false
+    t.boolean "solved_flag", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
