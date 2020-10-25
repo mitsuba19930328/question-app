@@ -1,21 +1,22 @@
-
-<%= @question %><br>
-質問内容：<%= @question.question %><br>
-回答一覧：
-<% if @answers != nil %>
-  <%= @answers.each do |answer| %>
-    <%= answer&.answer %>
+<div class='showQuesiton'>
+<div class='question'>
+  <%= @question %><br>
+  質問内容：<%= @question.question %></div>
+<div class='answers'>回答一覧：
+<% if @exist_answers != nil %>
+  <%= @exist_answers.each do |answer| %>
+      <p><%= answer.answer %></p>
   <% end %>
-<% end %>
-回答する：
+  <% end %></div>
 
-<%= form_for(@answer) do |f| %>
+  <!-- 回答提出用フォーム -->
+<div class='submit_question'>回答する：
+<%= form_for(@new_answer) do |f| %>
   <%= f.text_area :answer %>
+  <%= f.hidden_field :question_id, :value => @question.id %>
   <%= f.submit "送信" %>
-<% end %>
+  <% end %></div></div>
 
-このページでは<br>
-質問の詳細<br>
-回答一覧（回答一覧【自他の回答含む】）<br>
-回答ボタン（自分が回答する）<br>
-って感じの構成にする
+<div>
+  <%=link_to "質問一覧に戻る",questions_path %>
+</div>

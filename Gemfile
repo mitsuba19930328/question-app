@@ -79,6 +79,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 # to fix the bug easier
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'pry-byebug'
+# gem 'better_errors'
+# gem 'binding_of_caller'
+# gem 'pry-byebug'

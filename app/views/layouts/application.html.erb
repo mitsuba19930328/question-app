@@ -10,11 +10,20 @@
   </head>
 
   <body>
+    <div>
+      <!--ログイン済ユーザー用ヘッダーメニュー-->
+      <% if current_user != nil %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
+        <%= link_to "質問する", new_question_path %>
+        <%= link_to "質問一覧", questions_path %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% end %>
+    </div>
     <% if flash[:notice] %>
-    <div class="alert alert-info"><%= flash[:notice] %></div>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:alert] %>
-    <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
     <% end %>
     <%= yield %>
   </body>

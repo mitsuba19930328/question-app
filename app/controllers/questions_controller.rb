@@ -9,11 +9,13 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(id: params[:id])
 
     # 質問に対する全ての回答を用意
-    @answers = Answer&.find_by(question_id: params[:id])
-    p @answers
+    @exist_answers = Answer.where(question_id: params[:id])
+    @exist_answers.each do |answer|
+      p answer
+    end
 
     # 解答用変数の用意
-    @answer = Answer.new
+    @new_answer = Answer.new
 
   end
 
