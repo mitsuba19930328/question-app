@@ -3,8 +3,11 @@
 
 <%= @questions.each do |question| %>
   <div id="container">
-  <%= question.question_id %>
-  <%= question.question %>
-  <%= link_to "質問詳細", question_path(question.id) %>
+    <%= question.question_id %>
+    <%= question.question %>
+    <%= link_to "質問詳細", question_path(question.id) %>
+    <% if question.user_id == @current_user_id %>
+      <%= link_to "質問を削除する", question_path(question.id), method: :delete %>
+    <% end %>
   </div>
 <% end %>

@@ -20,10 +20,10 @@
       <% end %>
     </div>
     <% if flash[:notice] %>
-      <div class="alert alert-info"><%= flash[:notice] %></div>
+      <div class="alert alert-info"><%= flash.now[:notice] %></div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <div class="alert alert-danger"><%= flash.now[:alert] %></div>
     <% end %>
     <%= yield %>
   </body>

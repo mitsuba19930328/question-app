@@ -1,10 +1,5 @@
 class AnswersController < ApplicationController
-
-  def index
-    #インデックスは必要ない気がする。
-    # 回答一覧っていらなくない？
-    redirect_to(questions_path)
-  end
+  before_action :require_login
 
   def create
     # answer提出時の作成処理
@@ -23,14 +18,20 @@ class AnswersController < ApplicationController
 
     answer = Answer.new(id: id, answer_id: answer_id, user_id: current_user_id, question_id: question_id, answer: answer_content)
     if answer.save
-      p "save ok"
+      # 回答の保存に成功した場合、質問ページへ
       redirect_to(question_path(question_id))
     else
-      p "save not ok"
-      redirect_to(questions_path)
+      # 回答の保存に失敗した場合、同様に質問ページへ
+      redirect_to(question_path(question_id))
     end
   end
 
+  private
 
-
+    def require_login
+      unless logged_in?
+        flash[:alert] = "ログインしてください"
+        render new_user_session_path
+      end
+    end
 end

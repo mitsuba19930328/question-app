@@ -1,8 +1,21 @@
+<div class="myPage">
+  <div class="profile">
+    プロフィール：
+    id:<%= @user&.id %>
+    email:<%= @user&.email %>
+  </div>
 
-テスト（プロフィール）
-id:<%= @user&.id %>
-email:<%= @user&.email %>
+  <%= link_to "質問する", new_question_path %>
 
-質問する
-<%= link_to "質問する", new_question_path %>
-
+  過去の質問一覧
+  <%= @my_questions.each do |my_question| %>
+    <div id="myQuestions">
+      <%= my_question.question_id %>
+      <%= my_question.question %>
+      <%= link_to "質問詳細", question_path(my_question.id) %>
+      <% if my_question.user_id == @current_user_id %>
+        <%= link_to "質問を削除する", question_path(my_question.id), method: :delete %>
+      <% end %>
+    </div>
+<% end %>
+</div>
