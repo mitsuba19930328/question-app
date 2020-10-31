@@ -2,7 +2,9 @@
   <div class="profile">
     プロフィール：
     id:<%= @user&.id %>
-    email:<%= @user&.email %>
+    <% if @user.id == @current_user_id %>
+      email:<%= @user&.email %>
+    <% end %>
   </div>
 
   <%= link_to "質問する", new_question_path %>

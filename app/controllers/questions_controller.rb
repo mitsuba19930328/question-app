@@ -64,7 +64,7 @@ class QuestionsController < ApplicationController
 
     def require_login
       unless logged_in?
-        flash[:error] = "ログインしてください"
+        flash[:alert] = "ログインしてください"
         redirect_to new_user_session_path
       end
     end

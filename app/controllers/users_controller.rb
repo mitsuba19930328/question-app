@@ -10,13 +10,15 @@ class UsersController < ApplicationController
 
     # 自分の質問を取得
     @my_questions = Question.all.where(user_id: params[:id])
+
+    @current_user_id = current_user.id
   end
 
   private
 
     def require_login
       unless logged_in?
-        flash[:error] = "ログインしてください"
+        flash[:alert] = "ログインしてください"
         redirect_to new_user_session_path
       end
     end
