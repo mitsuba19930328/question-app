@@ -1,21 +1,37 @@
 
+.big-bg{
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home{
+  background-image: url(askteacher.jpg);
+  min-height: 100vh;
+  &page-title{
+    text-transform: none;
+  }
+}
+
 .loginPage{
   &_contents{
-    height: 80vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
     &_title{
       margin-top: 12vh;
+      color: #fff;
+      backdrop-color: black;
     }
     &_btn{
       display: block;
       max-width: 400px;
       padding: 20px;
       margin: 0 auto;
-      border-radius: 30px;
-      background: #fd5068;
+      border-radius: 20px;
+      background: lightseagreen;
       color: #fff;
     }
   }

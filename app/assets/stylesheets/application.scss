@@ -3,7 +3,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* 以下は他ページscssを適用するため */
 /* pages */
+@import "common";
 @import "top";
 @import "users/sign_up";
 @import "users/sign_in";

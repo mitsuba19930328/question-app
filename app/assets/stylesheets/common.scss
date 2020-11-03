@@ -1,0 +1,33 @@
+/* HEADER */
+
+
+
+.page_header{
+  background-color: lightseagreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &_logo{
+    width: 128px;
+    height: auto;
+
+  }
+
+  &_menu{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 25px;
+    list-style: none;
+
+    li{
+      margin-left: 34px;
+    }
+  }
+}
+
+.wrapper{
+  margin: 0 auto;
+  padding: 0 4%;
+}

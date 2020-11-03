@@ -4,21 +4,28 @@
     <title>QuestionApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!-- この部分にress.cssを組み込む必要がある（railsでの組み込み方を調べる） -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div>
-      <!--ログイン済ユーザー用ヘッダーメニュー-->
-      <% if current_user != nil %>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-        <%= link_to "質問する", new_question_path %>
-        <%= link_to "質問一覧", questions_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% end %>
-    </div>
+    <nav>
+      <ul class="page_header wrapper">
+        <h1><%=link_to image_tag("logo.png", class:"page_header_logo"), "/" %></h1>
+        <!--ログイン済ユーザー用ヘッダーメニュー-->
+        <div class="page_header_menu">
+          <% if current_user == nil %>
+            <li><%= link_to "HOME", "/" %></li>
+            <li><%= link_to "LOGIN", new_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+            <li><%= link_to "質問する", new_question_path %></li>
+            <li><%= link_to "質問一覧", questions_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        </div>
+      </ul>
+    </nav>
     <% if flash[:notice] %>
       <div class="alert alert-info"><%= flash.now[:notice] %></div>
     <% end %>
