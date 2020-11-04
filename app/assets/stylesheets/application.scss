@@ -3,6 +3,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* 共通カラー */
+$main-color:#60c5ba;
+$accent-color:#ef5285;
+$accent-color2:#feee7d;
+
 /* 以下は他ページscssを適用するため */
 /* pages */
 @import "common";

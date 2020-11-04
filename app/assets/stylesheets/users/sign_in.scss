@@ -1,0 +1,34 @@
+.signInPage{
+
+  &_contents{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .title{
+      margin: 10px 0;
+      font-size: 2.5rem;
+    }
+
+    .form{
+      .field{
+        margin-top: 5px;
+        font-size: larger;
+      }
+
+      .submitBtn{
+        display: block;
+        max-width: 300px;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 30px;
+        background: $accent-color;
+        color: white;
+      }
+
+    }
+
+  }
+}

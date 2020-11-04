@@ -1,10 +1,9 @@
 <div class="loginPage">
-  <div class="container">
     <div id="home" class="big-bg">
       <div class="loginPage_contents">
-        <h1 class="h3 loginPage_contents_title">疑問を解消しに行こう！</h1>
-        <%=link_to "メールアドレスでログインする", new_user_session_path, class:"btn loginPage_contents_btn" %>
+        <h1 class="h3 loginPage_contents_title">さあ、モヤモヤを解消しにいこう！</h1>
+        <%=link_to "メールアドレスでログイン", new_user_session_path, class:"btn loginPage_contents_signInBtn" %>
+        <%=link_to "新しく登録してはじめる", new_user_registration_path, class:"btn loginPage_contents_signUpBtn" %>
       </div>
     </div>
-  </div>
 </div>

@@ -1,9 +1,7 @@
 /* HEADER */
 
-
-
 .page_header{
-  background-color: lightseagreen;
+  background-color: #60c5ba;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,6 +18,10 @@
     text-transform: uppercase;
     margin-top: 25px;
     list-style: none;
+
+    a{
+      color: #fff;
+    }
 
     li{
       margin-left: 34px;

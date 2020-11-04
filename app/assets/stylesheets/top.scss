@@ -6,7 +6,7 @@
 }
 
 #home{
-  background-image: url(askteacher.jpg);
+  background-image: url(girlandpc.jpg);
   min-height: 100vh;
   &page-title{
     text-transform: none;
@@ -15,24 +15,35 @@
 
 .loginPage{
   &_contents{
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     &_title{
-      margin-top: 12vh;
-      color: #fff;
-      backdrop-color: black;
+      font-size: 1.7rem;
+      margin-top: 60vh;
+      //color: #fff;
+      //text-shadow:1px 0 0 tomato;
     }
-    &_btn{
+    &_signInBtn{
       display: block;
-      max-width: 400px;
+      max-width: 500px;
       padding: 20px;
       margin: 0 auto;
-      border-radius: 20px;
-      background: lightseagreen;
-      color: #fff;
+      border-radius: 30px;
+      background: $main-color;
+      color: white;
+    }
+
+    &_signUpBtn{
+      display: block;
+      max-width: 500px;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 30px;
+      background: $accent-color;
+      color: white;
     }
   }
 }
