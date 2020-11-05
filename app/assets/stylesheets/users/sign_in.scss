@@ -18,15 +18,19 @@
         font-size: larger;
       }
 
-      .submitBtn{
-        display: block;
-        max-width: 300px;
-        padding: 20px;
-        margin: 0 auto;
-        border-radius: 30px;
-        background: $accent-color;
-        color: white;
-      }
+        .submitBtn{
+          display: block;
+          width: 15vw;
+          max-width: 500px;
+          height: 8vh;
+          padding: 20px;
+          margin: 15px auto;
+          border-radius: 30px;
+          border: 0px none;
+          text-align: center;
+          background: $accent-color;
+          color: white;
+        }
 
     }
 
