@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
+
     # 解答用変数の用意
     @new_answer = Answer.new
 
@@ -34,8 +35,11 @@ class QuestionsController < ApplicationController
     # ログイン中ユーザーのID取得
     current_user_id = current_user.id
 
+    # 質問内容
+    question_content = params[:question][:question]
+
     # 必要なデータが揃ったので、questionインスタンス作成
-    @question = Question.new(question_id: question_id, user_id: current_user_id, question: params[:question])
+    @question = Question.new(question_id: question_id, user_id: current_user_id, question: question_content)
     if @question.save
       # 保存に成功したらquestions_pathに遷移
       redirect_to(questions_path)

@@ -9,7 +9,7 @@
   <!-- 回答内容 -->
   <div class='answers'>回答一覧：
     <% if @exist_answers != nil %>
-      <%= @exist_answers.each do |answer| %>
+      <% @exist_answers.each do |answer| %>
           <p><%= answer.answer %></p>
       <% end %>
     <% end %>

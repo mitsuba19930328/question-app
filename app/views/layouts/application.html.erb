@@ -16,12 +16,13 @@
         <div class="page_header_menu">
           <% if current_user == nil %>
             <li><%= link_to "HOME", "/" %></li>
+            <li><%= link_to "ABOUT", "#" %></li>
             <li><%= link_to "LOGIN", new_user_session_path %></li>
           <% else %>
-            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-            <li><%= link_to "質問する", new_question_path %></li>
-            <li><%= link_to "質問一覧", questions_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "MY PAGE", user_path(current_user.id) %></li>
+            <li><%= link_to "ASK", new_question_path %></li>
+            <li><%= link_to "VIEW QUESTIONS", questions_path %></li>
+            <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </div>
       </ul>

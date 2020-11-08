@@ -10,7 +10,7 @@
   <%= link_to "質問する", new_question_path %>
 
   過去の質問一覧
-  <%= @my_questions.each do |my_question| %>
+  <% @my_questions.each do |my_question| %>
     <div id="myQuestions">
       <%= my_question.question_id %>
       <%= my_question.question %>

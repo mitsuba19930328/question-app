@@ -1,11 +1,18 @@
+<div class="askQuestionPage">
+  <div class="contents">
+    <h2 class="title">質問する</h2>
 
-ここで質問を作成
-フォーム
-提出
+    <%= form_for(@question) do |f| %>
 
-<%= form_for(@question) do |f| %>
-  <%= f.text_area :question %>
-  <%= f.submit "送信" %>
-<% end %>
+      <div class="field">
+        <%= f.label :question , "分からないことを聞いてみよう" %>
+        <%= f.text_area :question %>
+      </div>
 
+      <div class="actions">
+        <%= f.submit "送信", class:"submitBtn" %>
+      </div>
 
+    <% end %>
+  </div>
+</div>

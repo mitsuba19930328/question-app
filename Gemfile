@@ -52,7 +52,7 @@ group :development, :test do
   # to fix the bug easier
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
 end
 
 group :development do
