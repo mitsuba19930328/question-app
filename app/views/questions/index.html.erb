@@ -1,21 +1,30 @@
 <div class="questionsListPage">
-  <h2 class="title">質問一覧</h2>
-  <% @questions.each do |question| %>
-    <div class="_list">
+  <div class="contents">
+    <h2 class="title">質問一覧</h2>
+
+    <% @questions.each do |question| %>
+
+    <div class="contents_list">
+
       <div class="field">
-        <%= question.question_id %>
-      </div>
-      <div class="field">
-        <%= question.question %>
-      </div>
-      <div class="linkBtn">
-        <%= link_to "質問詳細", question_path(question.id) %>
-      </div>
-      <div class="linkBtn">
+        <%= question.question %>：
+
+        <%=link_to question_path(question.id) do %>
+          <button class="linkBtn">質問詳細</button>
+        <% end %>
+
         <% if question.user_id == @current_user_id %>
-          <%= link_to "質問を削除する", question_path(question.id), method: :delete %>
+          <%=link_to question_path(question.id), method: :delete do %>
+            <button class="linkBtnDelete">質問を削除する</button>
+          <% end %>
         <% end %>
       </div>
+
+        <%#= link_to "質問詳細", question_path(question.id), class: 'btn btn-default' %>
+        <%# if question.user_id == @current_user_id %>
+          <%#= link_to "質問を削除する", question_path(question.id), method: :delete, class:"btn linkBtn" %>
+        <%# end %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

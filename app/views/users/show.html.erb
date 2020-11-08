@@ -1,23 +1,46 @@
-<div class="myPage">
-  <div class="profile">
-    プロフィール：
-    id:<%= @user&.id %>
-    <% if @user.id == @current_user_id %>
-      email:<%= @user&.email %>
+<div class="userMyPage">
+  <div class="contents">
+    <h2 class="title">マイページ</h2>
+    <div class="profile">
+      <div class="field">
+        プロフィール
+      </div>
+
+      <div class="field">
+        id:<%= @user&.id %>
+      </div>
+
+      <div class="field">
+        <% if @user.id == @current_user_id %>
+          email:<%= @user&.email %>
+        <% end %>
+      </div>
+    </div>
+
+    <%=link_to new_question_path do %>
+      <button class="linkBtn">質問する</button>
     <% end %>
-  </div>
 
-  <%= link_to "質問する", new_question_path %>
+    <div class="contents_list">
+      <h3 class="subTitle">過去の質問一覧</h3>
+      <% @my_questions.each do |my_question| %>
 
-  過去の質問一覧
-  <% @my_questions.each do |my_question| %>
-    <div id="myQuestions">
-      <%= my_question.question_id %>
-      <%= my_question.question %>
-      <%= link_to "質問詳細", question_path(my_question.id) %>
-      <% if my_question.user_id == @current_user_id %>
-        <%= link_to "質問を削除する", question_path(my_question.id), method: :delete %>
+        <div class="myQuestions">
+          <%= my_question.question_id %>
+          <%= my_question.question %>
+
+          <%=link_to question_path(my_question.id) do %>
+            <button class="linkBtnDetail">質問詳細</button>
+          <% end %>
+
+          <% if my_question.user_id == @current_user_id %>
+            <%=link_to question_path(my_question.id), method: :delete do %>
+              <button class="linkBtnDelete">質問を削除する</button>
+            <% end %>
+          <% end %>
+        </div>
+
       <% end %>
     </div>
-<% end %>
+  </div>
 </div>
