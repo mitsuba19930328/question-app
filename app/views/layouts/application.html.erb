@@ -16,7 +16,7 @@
         <div class="page_header_menu">
           <% if current_user == nil %>
             <li><%= link_to "HOME", "/" %></li>
-            <li><%= link_to "ABOUT", "#" %></li>
+<!--            <li><%#= link_to "ABOUT", "#" %></li>-->
             <li><%= link_to "LOGIN", new_user_session_path %></li>
           <% else %>
             <li><%= link_to "MY PAGE", user_path(current_user.id) %></li>
