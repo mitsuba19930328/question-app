@@ -1,39 +1,44 @@
-<div class='showQuesiton'>
+ <div class="questionAnswerPage">
+   <div class="contents">
+     <h2 class="title">質問詳細</h2>
 
-  <!-- 質問内容 -->
-  <div class='question'>
-    <%= @question %><br>
-    質問内容：<%= @question.question %>
-  </div>
+     <!-- 質問内容 -->
+     <div class='question'>
+       <% @question %>
+       質問内容：<%= @question.question %>
+     </div>
 
-  <!-- 回答内容 -->
-  <div class='answers'>回答一覧：
-    <% if @exist_answers != nil %>
-      <% @exist_answers.each do |answer| %>
-          <p><%= answer.answer %></p>
-      <% end %>
-    <% end %>
-  </div>
+     <!-- 回答内容 -->
+     <div class='answers'>回答一覧：
+       <% if @exist_answers != nil %>
+         <% @exist_answers.each_with_index do |answer, i| %>
+           <div class="oneAnswer">
+           <%=i + 1 %>.<%= answer.answer %>
+           </div>
+         <% end %>
+       <% end %>
+     </div>
 
-  <!-- 回答提出用フォーム -->
-  <div class='submit_question'>回答する：
-    <%= form_for(@new_answer) do |f| %>
-      <%= f.text_area :answer %>
-      <%= f.hidden_field :question_id, :value => @question.id %>
-      <%= f.submit "送信" %>
-    <% end %>
-  </div>
+     <!-- 回答提出用フォーム -->
+     <div class='submit_question'>
+       回答する：
+       <%= form_for(@new_answer) do |f| %>
+         <%= f.text_area :answer %>
+         <%= f.hidden_field :question_id, :value => @question.id %>
+         <%= f.submit "送信", class:"submitBtn" %>
+       <% end %>
+     </div>
 
-  <!-- 質問削除ボタン（質問者のみ削除可能） -->
-  <div class='delete_question'>
-    <% if @question.user_id == @current_user_id %>
-      <%= link_to "質問を削除する", question_path(@question.id), method: :delete %>
-    <% end %>
-  </div>
+     <!-- 質問削除ボタン（質問者のみ削除可能） -->
 
-  <!-- 質問一覧バックボタン -->
-  <div>
-    <%=link_to "質問一覧に戻る",questions_path %>
-  </div>
+     <% if @question.user_id == @current_user_id %>
+       <%=link_to question_path(@question.id), method: :delete do %>
+         <button class="linkBtnDelete">質問を削除する</button>
+       <% end %>
+     <% end %>
 
-</div>
+     <!-- 質問一覧バックボタン -->
+     <%=link_to "質問一覧に戻る",questions_path %>
+
+   </div>
+ </div>
