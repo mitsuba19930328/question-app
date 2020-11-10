@@ -23,8 +23,6 @@
     &_title{
       font-size: 1.7rem;
       margin-top: 60vh;
-      //color: #fff;
-      //text-shadow:1px 0 0 tomato;
     }
     &_signInBtn{
       display: block;
@@ -45,5 +43,29 @@
       background: $accent-color;
       color: white;
     }
+  }
+}
+
+.aboutPage{
+  .contents{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .title{
+      font-size: 1.7rem;
+      margin-top: 15vh;
+    }
+
+    .description{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-size: larger;
+    }
+
   }
 }
